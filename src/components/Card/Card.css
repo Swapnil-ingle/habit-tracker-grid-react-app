@@ -1,0 +1,74 @@
+.card {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 540px;
+  min-width: 215px;
+  width: 215px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid gray;
+  margin: 10px 20px;
+  position: relative;
+}
+
+.card-header {
+  background: #f3a712;
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px dotted black;
+  margin-bottom: 15px;
+}
+
+.card-header h2 {
+  margin: 0;
+}
+
+.card-header p {
+  background-color: #ffffffc0;
+  margin-top: 1px;
+  margin-bottom: 4px;
+  font-size: 10px;
+}
+
+.card button {
+  padding: 10px 0;
+  width: 80%;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background-color: seagreen;
+  font-weight: bold;
+  color: ivory;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card button:hover {
+  cursor: pointer;
+  background-color: rgb(40, 109, 70);
+}
+
+#undo-btn {
+  background-color: firebrick;
+}
+
+#remove-card {
+  position: absolute;
+  opacity: 0.15;
+  font-size: 5px;
+  top: -25px;
+  right: -2px;
+  width: 45px;
+  z-index: 1;
+  background-color: transparent;
+  color: firebrick;
+  box-shadow: none;
+}
+
+#remove-card:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  opacity: 1;
+}

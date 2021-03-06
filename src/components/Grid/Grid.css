@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(53, 1fr);
+  gap: 5px 5px;
+  margin-bottom: 15px;
+  max-height: 400px;
+  overflow: auto;
+  margin-left: -15px;
+  position: relative;
+}
+
+.grid small {
+  font-size: 8px;
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.fixed {
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+}

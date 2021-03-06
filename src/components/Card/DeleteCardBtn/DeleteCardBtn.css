@@ -1,0 +1,41 @@
+.delete-card-dialog-container {
+  padding: 1rem;
+  border-radius: 3px;
+  background-color: whitesmoke;
+}
+
+.delete-card-dialog-container p {
+  font-weight: lighter;
+}
+
+.delete-card-dialog-btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-card-dialog-btns-container button {
+  border-radius: 5px;
+  padding: 8px 40px;
+}
+
+.delete-card-btn {
+  border: 2px solid firebrick;
+  color: firebrick;
+}
+
+.delete-card-btn:hover {
+  color: whitesmoke;
+  cursor: pointer;
+  background-color: firebrick;
+}
+
+.cancel-delete-card-btn {
+  border: 2px solid seagreen;
+  color: seagreen;
+}
+
+.cancel-delete-card-btn:hover {
+  color: whitesmoke;
+  cursor: pointer;
+  background-color: seagreen;
+}
