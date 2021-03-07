@@ -8,14 +8,11 @@ const NavBar = () => {
   return (
     <nav>
       <Link to="/">
-        <h2>GridHabitTracker</h2>
+        <h3>GridHabitTracker</h3>
       </Link>
       <Link to="/signUp">
-        <h2>Sign Up</h2>
+        <button>Sign Up</button>
       </Link>
-      <div>
-        <FormBtn />
-      </div>
     </nav>
   );
 };

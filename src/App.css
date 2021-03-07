@@ -15,6 +15,7 @@ body {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 main {
@@ -34,6 +35,10 @@ button {
   margin: 15px 0;
 }
 
+.dashboard-container {
+  position: relative;
+}
+
 .add-new-habit-btn:hover {
   cursor: pointer;
   color: rgb(33, 100, 62);
@@ -43,7 +48,6 @@ button {
   max-width: 765px;
   display: flex;
   overflow: hidden;
-  position: relative;
   scroll-behavior: smooth;
 }
 
@@ -80,4 +84,10 @@ button {
 #scroll-right-btn:hover {
   cursor: pointer;
   background-color: rgba(128, 128, 128, 0.3);
+}
+
+.add-new-card-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

@@ -5,6 +5,7 @@ import { useGlobalContext } from "./context/context";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import Error from "./components/Error/Error";
+import FormBtn from "./components/Form/FormBtn/FormBtn";
 
 function App() {
   const { habits } = useGlobalContext();
@@ -22,7 +23,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="dashboard-container">
       <main>
         <button
           id="scroll-left-btn"
@@ -45,8 +46,11 @@ function App() {
         >
           <ArrowRightIcon />
         </button>
+        <div className="add-new-card-container">
+          <FormBtn />
+        </div>
       </main>
-    </>
+    </div>
   );
 }
 
