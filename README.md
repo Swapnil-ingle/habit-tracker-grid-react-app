@@ -1,3 +1,9 @@
+# Click here to interact
+
+https://habit-tracking-grid.netlify.app/
+
+# About the application
+
 ## What?
 
 - An application that lets the user 'ping' to tell that they've done a habit for today.
