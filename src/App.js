@@ -1,5 +1,5 @@
 import "./App.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Card from "./components/Card/Card";
 import { useGlobalContext } from "./context/context";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -10,6 +10,9 @@ import FormBtn from "./components/Form/FormBtn/FormBtn";
 function App() {
   const { habits } = useGlobalContext();
   const habitCardsContainerRef = useRef(null);
+
+  const [isFirstCard, setisFirstCard] = useState(true);
+  const [isLastCard, setisLastCard] = useState(false);
 
   if (habits.length <= 0) {
     return (
@@ -26,9 +29,13 @@ function App() {
     <div className="dashboard-container">
       <main>
         <button
+          disabled={isFirstCard}
           id="scroll-left-btn"
           onClick={() => {
-            scroll(habitCardsContainerRef, -255);
+            if (!scroll(habitCardsContainerRef, -255)) {
+              setisFirstCard(true);
+            }
+            setisLastCard(false);
           }}
         >
           <ArrowLeftIcon />
@@ -39,9 +46,14 @@ function App() {
           })}
         </div>
         <button
+          disabled={isLastCard}
           id="scroll-right-btn"
           onClick={() => {
-            scroll(habitCardsContainerRef, 255);
+            console.log(habitCardsContainerRef.current.scrollLeft);
+            if (!scroll(habitCardsContainerRef, 255)) {
+              setisLastCard(true);
+            }
+            setisFirstCard(false);
           }}
         >
           <ArrowRightIcon />
@@ -55,7 +67,20 @@ function App() {
 }
 
 const scroll = (habitCardsContainerRef, scrollOffset) => {
+  var beforeScrolling = habitCardsContainerRef.current.scrollLeft;
+  console.log("Before scrolling: " + habitCardsContainerRef.current.scrollLeft);
   habitCardsContainerRef.current.scrollLeft += scrollOffset;
+  console.log("After scrolling: " + habitCardsContainerRef.current.scrollLeft);
+
+  console.log(beforeScrolling, habitCardsContainerRef.current.scrollLeft);
+
+  if (habitCardsContainerRef.current.scrollLeft === beforeScrolling) {
+    console.log("Returning False");
+    // return false;
+    return true;
+  }
+
+  return true;
 };
 
 export default App;
