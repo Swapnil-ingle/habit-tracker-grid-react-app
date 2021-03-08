@@ -32,10 +32,16 @@ function App() {
           disabled={isFirstCard}
           id="scroll-left-btn"
           onClick={() => {
-            if (!scroll(habitCardsContainerRef, -255)) {
-              setisFirstCard(true);
-            }
-            setisLastCard(false);
+            const beforeScroll = scroll(habitCardsContainerRef, -255);
+
+            setTimeout(() => {
+              if (beforeScroll === habitCardsContainerRef.current.scrollLeft) {
+                // Scroll did not happen
+                setisFirstCard(true);
+              } else {
+                setisLastCard(false);
+              }
+            }, 500);
           }}
         >
           <ArrowLeftIcon />
@@ -49,11 +55,16 @@ function App() {
           disabled={isLastCard}
           id="scroll-right-btn"
           onClick={() => {
-            console.log(habitCardsContainerRef.current.scrollLeft);
-            if (!scroll(habitCardsContainerRef, 255)) {
-              setisLastCard(true);
-            }
-            setisFirstCard(false);
+            const beforeScroll = scroll(habitCardsContainerRef, 255);
+
+            setTimeout(() => {
+              if (beforeScroll === habitCardsContainerRef.current.scrollLeft) {
+                // Scroll did not happen
+                setisLastCard(true);
+              } else {
+                setisFirstCard(false);
+              }
+            }, 500);
           }}
         >
           <ArrowRightIcon />
@@ -67,20 +78,8 @@ function App() {
 }
 
 const scroll = (habitCardsContainerRef, scrollOffset) => {
-  var beforeScrolling = habitCardsContainerRef.current.scrollLeft;
-  console.log("Before scrolling: " + habitCardsContainerRef.current.scrollLeft);
   habitCardsContainerRef.current.scrollLeft += scrollOffset;
-  console.log("After scrolling: " + habitCardsContainerRef.current.scrollLeft);
-
-  console.log(beforeScrolling, habitCardsContainerRef.current.scrollLeft);
-
-  if (habitCardsContainerRef.current.scrollLeft === beforeScrolling) {
-    console.log("Returning False");
-    // return false;
-    return true;
-  }
-
-  return true;
+  return habitCardsContainerRef.current.scrollLeft;
 };
 
 export default App;
