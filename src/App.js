@@ -21,6 +21,9 @@ function App() {
           severity="warning"
           msg="No habits tracked yet - Click '+' button to start tracking."
         />
+        <div className="add-new-card-container">
+          <FormBtn />
+        </div>
       </main>
     );
   }
