@@ -1,5 +1,5 @@
 import "./App.css";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Card from "./components/Card/Card";
 import { useGlobalContext } from "./context/context";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -10,9 +10,6 @@ import FormBtn from "./components/Form/FormBtn/FormBtn";
 function App() {
   const { habits } = useGlobalContext();
   const habitCardsContainerRef = useRef(null);
-
-  const [isFirstCard, setisFirstCard] = useState(true);
-  const [isLastCard, setisLastCard] = useState(false);
 
   if (habits.length <= 0) {
     return (
@@ -32,20 +29,8 @@ function App() {
     <div className="dashboard-container">
       <main>
         <button
-          disabled={isFirstCard}
           id="scroll-left-btn"
-          onClick={() => {
-            const beforeScroll = scroll(habitCardsContainerRef, -255);
-
-            setTimeout(() => {
-              if (beforeScroll === habitCardsContainerRef.current.scrollLeft) {
-                // Scroll did not happen
-                setisFirstCard(true);
-              } else {
-                setisLastCard(false);
-              }
-            }, 500);
-          }}
+          onClick={() => scroll(habitCardsContainerRef, -255)}
         >
           <ArrowLeftIcon />
         </button>
@@ -55,20 +40,8 @@ function App() {
           })}
         </div>
         <button
-          disabled={isLastCard}
           id="scroll-right-btn"
-          onClick={() => {
-            const beforeScroll = scroll(habitCardsContainerRef, 255);
-
-            setTimeout(() => {
-              if (beforeScroll === habitCardsContainerRef.current.scrollLeft) {
-                // Scroll did not happen
-                setisLastCard(true);
-              } else {
-                setisFirstCard(false);
-              }
-            }, 500);
-          }}
+          onClick={() => scroll(habitCardsContainerRef, 255)}
         >
           <ArrowRightIcon />
         </button>
