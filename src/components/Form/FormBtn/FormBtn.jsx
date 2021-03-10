@@ -41,7 +41,7 @@ export default function TransitionsModal() {
   return (
     <div>
       <button className={classes.btn} type="button" onClick={handleOpen}>
-        <AddCircleIcon style={{ fontSize: 40 }} />
+        <AddCircleIcon style={{ fontSize: 50 }} />
       </button>
       <Modal
         aria-labelledby="transition-modal-title"

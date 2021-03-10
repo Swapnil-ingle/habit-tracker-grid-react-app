@@ -11,6 +11,7 @@
 }
 
 .grid small {
+  color: var(--white);
   font-size: 8px;
 }
 

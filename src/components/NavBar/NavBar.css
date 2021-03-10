@@ -4,17 +4,19 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: #2c3e50;
+  background-color: var(--blue);
 }
 
 nav h2 {
+  display: flex;
   color: whitesmoke;
+  align-items: center;
 }
 
 nav button {
-  background-color: white;
-  color: #2c3e50;
-  padding: 10px 15px;
+  background-color: transparent;
+  color: var(--white);
+  padding: 5px 5px;
   border-radius: 5px;
   font-weight: bold;
 }

@@ -12,14 +12,15 @@
   border: 1px solid gray;
   margin: 10px 20px;
   position: relative;
+  background: var(--dark-blue);
 }
 
 .card-header {
-  background: #f3a712;
+  background: var(--yellow);
   width: 100%;
   text-align: center;
-  border-bottom: 2px dotted black;
-  margin-bottom: 15px;
+  margin-bottom: 17px;
+  color: var(--black);
 }
 
 .card-header h2 {
@@ -27,7 +28,7 @@
 }
 
 .card-header p {
-  background-color: #ffffffc0;
+  background-color: var(--gray);
   margin-top: 1px;
   margin-bottom: 4px;
   font-size: 10px;
@@ -39,7 +40,7 @@
   outline: none;
   border: none;
   border-radius: 3px;
-  background-color: seagreen;
+  background-color: var(--green);
   font-weight: bold;
   color: ivory;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -51,19 +52,19 @@
 }
 
 #undo-btn {
-  background-color: firebrick;
+  background-color: var(--red);
 }
 
 #remove-card {
   position: absolute;
-  opacity: 0.15;
+  opacity: 0.2;
   font-size: 5px;
   top: -25px;
   right: -2px;
   width: 45px;
   z-index: 1;
-  background-color: transparent;
-  color: firebrick;
+  background-color: var(--white);
+  color: var(--red);
   box-shadow: none;
 }
 

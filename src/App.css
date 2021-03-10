@@ -4,6 +4,19 @@
   content: "width=device-width, initial-scale=1.0";
 }
 
+:root {
+  --black: #111111;
+  --green: #2f974b;
+  --dark-blue: #252a48;
+  --pink: #f61067;
+  --lavender: #e2cfea;
+  --yellow: #fabb04;
+  --white: #fbfbfb;
+  --gray: #e2e2e2;
+  --blue: #4285f4;
+  --red: #ea4335;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +24,7 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
+  background-color: var(--gray);
 }
 
 a {

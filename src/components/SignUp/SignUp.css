@@ -9,7 +9,7 @@ input {
 }
 
 .sign-up-container button {
-  background-color: royalblue;
+  background-color: var(--blue);
   color: white;
   padding: 15px 0;
   border-radius: 3px;
@@ -24,4 +24,8 @@ input {
 .sign-up-container button:disabled {
   cursor: wait;
   background-color: grey;
+}
+
+.sign-up-container a {
+  color: var(--blue);
 }
