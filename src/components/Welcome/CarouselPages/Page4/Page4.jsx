@@ -1,15 +1,10 @@
 import React from "react";
 import { useGlobalContext } from "../../../../context/context";
-import { Link } from "react-router-dom";
 
 import "./Page4.css";
 
 const Page4 = () => {
   const { markAsVisited } = useGlobalContext();
-
-  const handleGetStarted = () => {
-    markAsVisited();
-  };
 
   return (
     <div className="welcome-page">

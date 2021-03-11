@@ -1,7 +1,5 @@
 import React from "react";
 
-import Error from "../Error/Error";
-import FormBtn from "../Form/FormBtn/FormBtn";
 import Carousel from "react-elastic-carousel";
 
 import "./Welcome.css";

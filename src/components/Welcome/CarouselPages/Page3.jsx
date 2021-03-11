@@ -22,7 +22,11 @@ const Page3 = () => {
         </ol>
         <small>
           You can read the full article by James Clear (Author: Atomic Habits){" "}
-          <a target="_blank" href="https://jamesclear.com/habit-tracker">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://jamesclear.com/habit-tracker"
+          >
             here.
           </a>
         </small>
