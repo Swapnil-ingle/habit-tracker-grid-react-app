@@ -29,3 +29,7 @@ input {
 .sign-up-container a {
   color: var(--blue);
 }
+
+.sign-up-container a:hover {
+  color: lightskyblue;
+}

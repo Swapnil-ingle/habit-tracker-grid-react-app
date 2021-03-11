@@ -4,25 +4,15 @@ import Card from "./components/Card/Card";
 import { useGlobalContext } from "./context/context";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import Error from "./components/Error/Error";
 import FormBtn from "./components/Form/FormBtn/FormBtn";
+import Welcome from "./components/Welcome/Welcome";
 
 function App() {
-  const { habits } = useGlobalContext();
+  const { habits, isUsersFirstTime } = useGlobalContext();
   const habitCardsContainerRef = useRef(null);
 
-  if (habits.length <= 0) {
-    return (
-      <main>
-        <Error
-          severity="warning"
-          msg="No habits tracked yet - Click '+' button to start tracking."
-        />
-        <div className="add-new-card-container">
-          <FormBtn />
-        </div>
-      </main>
-    );
+  if (habits.length <= 0 && isUsersFirstTime) {
+    return <Welcome />;
   }
 
   return (

@@ -1,0 +1,18 @@
+.welcome-container {
+  margin: auto;
+  background-color: rgba(50, 205, 50, 0.329);
+  max-width: 50%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+a {
+  color: var(--blue);
+}
+
+a:hover {
+  color: var(--dark-blue);
+}

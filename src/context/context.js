@@ -7,6 +7,9 @@ const initialState = {
   habits: getFromLocalStorage("habits")
     ? getFromLocalStorage("habits").habits
     : [],
+  isUsersFirstTime: getFromLocalStorage("isFirstTime")
+    ? getFromLocalStorage("isFirstTime")
+    : true,
 };
 
 // Create a context
@@ -28,9 +31,20 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "DELETE_HABIT", payload: id });
   };
 
+  const markAsVisited = (isUsersFirstTime) => {
+    dispatch({ type: "MARK_AS_VISITED" });
+  };
+
   return (
     <AppContext.Provider
-      value={{ habits: state.habits, toggleToday, addNewHabit, deleteHabit }}
+      value={{
+        habits: state.habits,
+        isUsersFirstTime: state.isUsersFirstTime,
+        toggleToday,
+        addNewHabit,
+        deleteHabit,
+        markAsVisited,
+      }}
     >
       {children}
     </AppContext.Provider>

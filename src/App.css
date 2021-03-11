@@ -21,10 +21,19 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   background-color: var(--gray);
+}
+
+#root {
+  height: 100%;
 }
 
 a {

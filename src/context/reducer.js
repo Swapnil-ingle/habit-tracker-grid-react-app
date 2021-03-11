@@ -28,6 +28,9 @@ export const reducer = (state, action) => {
       );
       saveToLocalStorage("habits", { ...state, habits: newHabits });
       return { ...state, habits: newHabits };
+    case "MARK_AS_VISITED":
+      state.isUsersFirstTime = false;
+      return { ...state };
     default:
       return { ...state };
   }
