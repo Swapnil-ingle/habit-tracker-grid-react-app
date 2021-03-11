@@ -20,6 +20,19 @@ const Form = ({ handleClose }) => {
   const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
 
   useEffect(() => {
+    console.log("Why was this triggered again?");
+
+    if (formData.name === undefined) {
+      setDisableSubmitBtn(true);
+      return;
+    }
+
+    if (formData.name !== undefined && formData.name.length <= 0) {
+      setError(true);
+      setErrorMsg("Name cannot be empty.");
+      return;
+    }
+
     if (
       new Date(formData.startDate).getFullYear() !== new Date().getFullYear()
     ) {
@@ -31,17 +44,6 @@ const Form = ({ handleClose }) => {
     if (new Date(formData.startDate) > new Date()) {
       setError(true);
       setErrorMsg("Start date should be current date or a past date.");
-      return;
-    }
-
-    if (formData.name === undefined) {
-      setDisableSubmitBtn(true);
-      return;
-    }
-
-    if (formData.name !== undefined && formData.name.length <= 0) {
-      setError(true);
-      setErrorMsg("Name cannot be empty.");
       return;
     }
 

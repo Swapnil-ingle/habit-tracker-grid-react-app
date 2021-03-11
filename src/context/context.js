@@ -7,8 +7,8 @@ const initialState = {
   habits: getFromLocalStorage("habits")
     ? getFromLocalStorage("habits").habits
     : [],
-  isUsersFirstTime: getFromLocalStorage("isFirstTime")
-    ? getFromLocalStorage("isFirstTime")
+  isUsersFirstTime: getFromLocalStorage("habits")
+    ? getFromLocalStorage("habits").isUsersFirstTime
     : true,
 };
 
@@ -31,7 +31,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "DELETE_HABIT", payload: id });
   };
 
-  const markAsVisited = (isUsersFirstTime) => {
+  const markAsVisited = () => {
     dispatch({ type: "MARK_AS_VISITED" });
   };
 

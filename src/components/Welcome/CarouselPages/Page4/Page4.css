@@ -1,0 +1,22 @@
+.get-started-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-page a {
+  color: var(--blue);
+}
+
+.welcome-page button {
+  width: 75%;
+  max-width: 300px;
+  background-color: var(--green);
+  color: var(--white);
+  padding: 18px 0;
+  border-radius: 5px;
+}
+
+.welcome-page button:hover {
+  cursor: pointer;
+  background-color: var(--dark-green);
+}
