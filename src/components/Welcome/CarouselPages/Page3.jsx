@@ -5,7 +5,7 @@ const Page3 = () => {
     <div className="welcome-page">
       <section>
         <h2>It's deceptively powerful</h2>
-        <h4>It does three things:</h4>
+        <h4>Daily habit-tracking does three things:</h4>
         <ol>
           <li>
             It creates a <strong>visual cue</strong> that can{" "}

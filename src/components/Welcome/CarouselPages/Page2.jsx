@@ -6,13 +6,12 @@ const Page2 = () => {
       <section>
         <h2>Why most people fail to build a new habit?</h2>
         <p>
-          <strong>Good</strong> habits show result in long time and there is no
-          immediate feedback, unlike a smoker hitting a puff.
+          <strong>Good habits show results in a long time</strong> and there is
+          no immediate feedback on our daily actions.
         </p>
         <p>
-          According to the book <strong>Atomic Habit</strong>, a simple
-          calendar-based habit tracker would help you get started and sustain
-          that habit for a long time.
+          The book <strong>Atomic Habit</strong>, states that a simple
+          calendar-based tracking would help build any habit for a long time.
         </p>
       </section>
     </div>

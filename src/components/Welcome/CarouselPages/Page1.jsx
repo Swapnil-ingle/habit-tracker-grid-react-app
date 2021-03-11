@@ -6,8 +6,8 @@ const Page1 = () => {
       <section>
         <h2>What is Hagrid?</h2>
         <p>
-          Hagrid is a simple habit-tracking application that helps you build new
-          habits
+          Hagrid is a habit-tracking app that helps you{" "}
+          <strong>build and sustain new habits</strong>.
         </p>
       </section>
     </div>

@@ -11,6 +11,10 @@ const Page4 = () => {
       <section>
         <h2>How does it work?</h2>
         <p>
+          You get an array of empty boxes for each remaining day of the year,
+          since when you started a habit.
+        </p>
+        <p>
           Everyday, for each habit, you start with an empty box and you have to
           mark it as <strong style={{ color: "var(--green)" }}> Done</strong>{" "}
           till the end of the day.
