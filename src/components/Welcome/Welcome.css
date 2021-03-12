@@ -1,6 +1,5 @@
 .welcome-container {
   margin: auto;
-  /* background-color: rgba(50, 205, 50, 0.329); */
   height: 80%;
   display: flex;
   justify-content: center;
@@ -46,6 +45,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+@media screen and (min-width: 700px) {
+  .welcome-page {
+    max-width: 65%;
+  }
 }
 
 .welcome-container h2 {
