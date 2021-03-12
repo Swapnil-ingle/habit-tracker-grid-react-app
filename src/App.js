@@ -12,7 +12,7 @@ function App() {
   const { habits, isUsersFirstTime } = useGlobalContext();
   const habitCardsContainerRef = useRef(null);
 
-  if (habits.length <= 0 && isUsersFirstTime) {
+  if (isUsersFirstTime) {
     return <Welcome />;
   }
 

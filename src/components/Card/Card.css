@@ -34,7 +34,7 @@
   font-size: 10px;
 }
 
-.card button {
+.card-submit-btn {
   padding: 10px 0;
   width: 80%;
   outline: none;
@@ -46,7 +46,7 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card button:hover {
+.card-submit-btn:hover {
   cursor: pointer;
   background-color: rgb(40, 109, 70);
 }

@@ -35,6 +35,10 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "MARK_AS_VISITED" });
   };
 
+  const markAsUnvisited = () => {
+    dispatch({ type: "MARK_AS_UNVISITED" });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -44,6 +48,7 @@ const AppProvider = ({ children }) => {
         addNewHabit,
         deleteHabit,
         markAsVisited,
+        markAsUnvisited,
       }}
     >
       {children}
