@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./Form.css";
+
 import { useGlobalContext } from "../../context/context";
 import { formatDateObj } from "../../utils/utils";
+import { scrollToEnd } from "../Home/Home";
 import Error from "../Error/Error";
+
+import "./Form.css";
 
 const initialState = {
   id: "",
@@ -20,8 +23,6 @@ const Form = ({ handleClose }) => {
   const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
 
   useEffect(() => {
-    console.log("Why was this triggered again?");
-
     if (formData.name === undefined) {
       setDisableSubmitBtn(true);
       return;
@@ -61,6 +62,7 @@ const Form = ({ handleClose }) => {
 
     addNewHabit({ ...formData, id: new Date().getTime().toString() });
     handleClose();
+    scrollToEnd();
   };
 
   return (

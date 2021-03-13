@@ -1,0 +1,78 @@
+main {
+  min-height: 80vh;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: seagreen;
+  margin: 15px 0;
+}
+
+.dashboard-container {
+  position: relative;
+}
+
+.add-new-habit-btn:hover {
+  cursor: pointer;
+  color: rgb(33, 100, 62);
+}
+
+.habit-cards-container {
+  max-width: 765px;
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.habit-cards-container::after {
+  content: "";
+  border-left: 0.01px solid transparent;
+}
+
+@media screen and (max-width: 900px) {
+  .habit-cards-container {
+    max-width: 510px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .habit-cards-container {
+    max-width: 255px;
+  }
+
+  #scroll-left-btn,
+  #scroll-right-btn {
+    padding: 0 0;
+  }
+}
+
+#scroll-left-btn,
+#scroll-right-btn {
+  height: 15rem;
+  background-color: rgba(128, 128, 128, 0.1);
+  color: black;
+}
+
+#scroll-left-btn:hover,
+#scroll-right-btn:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+#scroll-left-btn:disabled,
+#scroll-right-btn:disabled {
+  display: none;
+}
+
+.add-new-card-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
-import "./SignUp.css";
+import { Link } from "react-router-dom";
+
 import { useAuthContext } from "../../context/AuthContext";
 import Error from "../Error/Error";
-import { Link } from "react-router-dom";
+
+import "./SignUp.css";
 
 const SignUp = () => {
   const { signup } = useAuthContext();
@@ -45,6 +47,12 @@ const SignUp = () => {
 
   return (
     <main>
+      <div className="sign-up-container-floating-warning">
+        <Error
+          severity="info"
+          msg={"Note: This feature is under construction!"}
+        />
+      </div>
       <div className="sign-up-container">
         <form>
           {error && <Error severity="error" msg={errorMsg} />}
