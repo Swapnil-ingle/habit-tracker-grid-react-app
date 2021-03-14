@@ -49,7 +49,7 @@ const Home = () => {
         </button>
         <div ref={habitCardsContainerRef} className="habit-cards-container">
           {habits.map((habit) => {
-            return <Card key={habit.id} {...habit} />;
+            return <Card key={habit.id} habit={habit} />;
           })}
         </div>
         <button
