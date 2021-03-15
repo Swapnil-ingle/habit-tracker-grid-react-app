@@ -16,7 +16,7 @@ let habitCardsContainerRef = null;
 let habitArrLen = 0;
 
 const Home = () => {
-  const { habits, isUsersFirstTime } = useGlobalContext();
+  const { habits, isUsersFirstTime, toggleToday } = useGlobalContext();
   habitArrLen += habits.length;
   habitCardsContainerRef = useRef(null);
 
@@ -49,7 +49,9 @@ const Home = () => {
         </button>
         <div ref={habitCardsContainerRef} className="habit-cards-container">
           {habits.map((habit) => {
-            return <Card key={habit.id} {...habit} />;
+            return (
+              <Card markHabitDone={toggleToday} key={habit.id} {...habit} />
+            );
           })}
         </div>
         <button
