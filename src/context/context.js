@@ -19,9 +19,9 @@ const AppContext = React.createContext(initialState);
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const toggleToday = (id) => {
+  const toggleToday = React.useCallback((id) => {
     dispatch({ type: "TOGGLE_TODAY", payload: id });
-  };
+  }, []);
 
   const addNewHabit = (habit) => {
     dispatch({ type: "ADD_NEW_HABIT", payload: habit });

@@ -3,31 +3,34 @@ import { saveToLocalStorage } from "../utils/localStorage";
 
 export const reducer = (state, action) => {
   let newHabits;
+
   switch (action.type) {
     case "TOGGLE_TODAY":
-      // const habits = state.habits.filter((item) => item.id === action.payload);
-      // const currDateFormatted = formatDateObj(new Date());
-      // const todaysDateIdx = habits[0].doneTasksOn.indexOf(currDateFormatted);
-      // let newDoneTasksOn = habits[0].doneTasksOn;
+      const currDateFormatted = formatDateObj(new Date());
+      newHabits = [...state.habits];
 
-      newHabits = state.habits.map((habit) => {
-        if (habit.id === action.payload) {
-          const newDoneTasksOn = habit.doneTasksOn;
-          const todaysDateIdx = habit.doneTasksOn.indexOf(
-            formatDateObj(new Date())
-          );
+      let habitIdx = undefined;
 
-          if (todaysDateIdx !== -1) {
-            newDoneTasksOn.splice(todaysDateIdx, 1);
-          } else {
-            newDoneTasksOn.push(formatDateObj(new Date()));
-          }
-
-          return { ...habit, doneTasksOn: newDoneTasksOn };
-        } else {
-          return habit;
+      for (let i = 0; i < newHabits.length; i++) {
+        if (newHabits[i].id === action.payload) {
+          habitIdx = i;
+          break;
         }
-      });
+      }
+
+      let habit = { ...state.habits[habitIdx] };
+
+      const todaysDateIdx = habit.doneTasksOn.indexOf(currDateFormatted);
+
+      const newDoneTasksOn = [...habit.doneTasksOn];
+      if (todaysDateIdx !== -1) {
+        newDoneTasksOn.splice(todaysDateIdx, 1);
+      } else {
+        newDoneTasksOn.push(currDateFormatted);
+      }
+
+      habit.doneTasksOn = newDoneTasksOn;
+      newHabits[habitIdx] = habit;
 
       saveToLocalStorage("habits", { ...state, habits: newHabits });
       return { ...state, habits: newHabits };

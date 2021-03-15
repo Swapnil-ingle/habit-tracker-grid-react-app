@@ -1,9 +1,8 @@
 import "./App.css";
 import Home from "./components/Home/Home";
-import Test from "./Test/Test";
 
 function App() {
-  return <Test />;
+  return <Home />;
 }
 
 export default App;
