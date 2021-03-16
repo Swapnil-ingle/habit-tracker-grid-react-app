@@ -17,17 +17,22 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const signup = (email, password) => {
-    auth.createUserWithEmailAndPassword(email, password);
+    return auth.createUserWithEmailAndPassword(email, password);
   };
 
   const login = (email, password) => {
-    auth.signInWithCredential();
+    return auth.signInWithEmailAndPassword(email, password);
+  };
+
+  const logout = () => {
+    return auth.signOut();
   };
 
   const value = {
     currentUser,
     signup,
     login,
+    logout,
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useAuthContext } from "../../context/AuthContext";
 import Error from "../Error/Error";
@@ -11,6 +11,7 @@ const SignUp = () => {
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -31,18 +32,19 @@ const SignUp = () => {
       return;
     }
 
-    try {
-      setLoading(true);
-      console.log("Submit!");
-      await signup(emailRef.current.value, passwordRef.current.value);
-    } catch {
-      setError(true);
-      setError("Failed to create an account");
-    }
-
-    setError(false);
-    setLoading(false);
-    setErrorMsg("");
+    setLoading(true);
+    signup(emailRef.current.value, passwordRef.current.value)
+      .then(function (result) {
+        setError(false);
+        setLoading(false);
+        setErrorMsg("");
+        history.push("/signup-success");
+      })
+      .catch(function (error) {
+        setError(true);
+        setErrorMsg("ERROR: " + error.message);
+        setLoading(false);
+      });
   };
 
   return (
