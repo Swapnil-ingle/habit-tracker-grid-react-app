@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid lightgray;
+}
+
+@media screen and (min-height: 700px) {
+  .footer {
+    position: fixed;
+  }
+}
+
+.footer section {
+  color: gray;
+  padding: 0 3rem;
+}
+
+.footer section a {
+  color: gray;
+}
+
+.footer section a:hover {
+  color: var(--dark-blue);
+}

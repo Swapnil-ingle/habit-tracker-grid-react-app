@@ -7,6 +7,11 @@ import Error from "../Error/Error";
 
 import "./Form.css";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
+
 const initialState = {
   id: "",
   name: undefined,
@@ -63,6 +68,9 @@ const Form = ({ handleClose }) => {
     addNewHabit({ ...formData, id: new Date().getTime().toString() });
     handleClose();
     scrollToEnd();
+    toast.success("Added a new habit-card!", {
+      position: toast.POSITION.BOTTOM_CENTER,
+    });
   };
 
   return (

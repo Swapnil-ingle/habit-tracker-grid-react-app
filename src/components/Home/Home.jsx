@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Card from "../Card/Card";
 import FormBtn from "../Form/FormBtn/FormBtn";
 import Welcome from "../Welcome/Welcome";
-import Error from "../Error/Error";
 import { useGlobalContext } from "../../context/context";
 
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -27,10 +26,15 @@ const Home = () => {
   if (habits.length <= 0 && !isUsersFirstTime) {
     return (
       <main>
-        <Error
-          severity="warning"
-          msg="No habits tracked yet - Click '+' button to start tracking."
-        />
+        <div className="no-habits-msg-container">
+          <img src="no-habits-found.png" alt="no-habits-found" />
+          <section>
+            <p>No habits tracked yet.</p>
+            <p>
+              Click <strong>'+'</strong> button to start tracking.
+            </p>
+          </section>
+        </div>
         <div className="add-new-card-container">
           <FormBtn />
         </div>

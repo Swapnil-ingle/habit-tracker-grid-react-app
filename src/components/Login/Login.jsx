@@ -6,6 +6,11 @@ import Error from "../Error/Error";
 
 import "./Login.css";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
+
 const Login = () => {
   const { login, logout, currentUser } = useAuthContext();
   const [error, setError] = useState(false);
@@ -54,8 +59,10 @@ const Login = () => {
     setErrorMsg("");
     logout()
       .then(function Result(r) {
-        console.log("Logged out!");
         history.push("/login");
+        toast.success("Logged out!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       })
       .catch(function Error(e) {
         setError(true);

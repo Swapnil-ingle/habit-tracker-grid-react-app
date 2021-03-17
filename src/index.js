@@ -9,6 +9,8 @@ import { AuthProvider } from "./context/AuthContext";
 import Login from "./components/Login/Login";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
+import Footer from "./components/Footer/Footer";
+import Credits from "./components/Credits/Credits";
 
 ReactDOM.render(
   <AuthProvider>
@@ -21,7 +23,9 @@ ReactDOM.render(
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/update-profile" component={UpdateProfile} />
+          <Route path="/credits" component={Credits} />
         </Switch>
+        <Footer />
       </Router>
     </AppProvider>
   </AuthProvider>,

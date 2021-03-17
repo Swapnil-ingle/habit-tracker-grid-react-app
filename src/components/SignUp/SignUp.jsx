@@ -6,6 +6,11 @@ import Error from "../Error/Error";
 
 import "./SignUp.css";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
+
 const SignUp = () => {
   const { signup } = useAuthContext();
   const [error, setError] = useState(false);
@@ -38,7 +43,10 @@ const SignUp = () => {
         setError(false);
         setLoading(false);
         setErrorMsg("");
-        history.push("/signup-success");
+        history.push("/login");
+        toast.success("Sign up successful!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       })
       .catch(function (error) {
         setError(true);

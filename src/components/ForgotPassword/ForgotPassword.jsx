@@ -2,20 +2,23 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useAuthContext } from "../../context/AuthContext";
-import Error, { Info, Success } from "../Error/Error";
+import Error, { Info } from "../Error/Error";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 const ForgotPassword = () => {
   const { resetPassword } = useAuthContext();
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
   const [loading, setLoading] = useState(false);
-  const [infoMsg, setInfoMsg] = useState();
 
   const emailRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setInfoMsg("");
     setError(false);
 
     if (emailRef.current.value.length <= 0) {
@@ -29,7 +32,9 @@ const ForgotPassword = () => {
       .then(function (result) {
         setLoading(false);
         setErrorMsg("");
-        setInfoMsg("Reset password link has been sent to your email!");
+        toast.success("Reset password link has been sent to your email!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       })
       .catch(function (error) {
         setError(true);
@@ -48,7 +53,6 @@ const ForgotPassword = () => {
         <form>
           <h1 className="text-center">Password Reset</h1>
           {error && <Error severity="error" msg={errorMsg} />}
-          {infoMsg && <Success msg={infoMsg} />}
           <div className="form-control">
             <label htmlFor="email">Email</label>
             <input ref={emailRef} type="email" name="email" id="email" />

@@ -3,6 +3,10 @@ import Grid from "../Grid/Grid";
 import "./Card.css";
 import { formatDateObj } from "../../utils/utils";
 import DeleteCardBtn from "./DeleteCardBtn/DeleteCardBtn";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 const Card = React.memo(
   ({ id, name, description, startDate, doneTasksOn, markHabitDone }) => {
@@ -23,6 +27,15 @@ const Card = React.memo(
           className="card-submit-btn"
           onClick={() => {
             markHabitDone(id);
+            if (doneToday) {
+              toast.warn("Removed habit mark!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+              });
+            } else {
+              toast.success("Marked habit as done!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+              });
+            }
           }}
         >
           {`${doneToday ? "Undo" : "Mark Today"}`}

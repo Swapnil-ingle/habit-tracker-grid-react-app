@@ -5,9 +5,14 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import CancelIcon from "@material-ui/icons/Cancel";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useGlobalContext } from "../../../context/context";
 
 import "./DeleteCardBtn.css";
+
+toast.configure();
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -74,7 +79,15 @@ const DeleteCardDialogBox = ({ handleClose, id }) => {
       <h2>Are you sure?</h2>
       <p>This action will remove all your progress</p>
       <section className="delete-card-dialog-btns-container">
-        <button onClick={() => deleteHabit(id)} className="delete-card-btn">
+        <button
+          onClick={() => {
+            deleteHabit(id);
+            toast.success("Removed habit-card!", {
+              position: toast.POSITION.BOTTOM_CENTER,
+            });
+          }}
+          className="delete-card-btn"
+        >
           Yes, I am
         </button>
         <button onClick={handleClose} className="cancel-delete-card-btn">
