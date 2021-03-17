@@ -30,12 +30,16 @@ input {
   background-color: grey;
 }
 
+.form-control button a {
+  color: var(--white);
+}
+
 .sign-up-container a {
-  color: var(--blue);
+  color: lightskyblue;
 }
 
 .sign-up-container a:hover {
-  color: lightskyblue;
+  color: var(--blue);
 }
 
 .sign-up-container-floating-warning {

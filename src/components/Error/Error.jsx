@@ -9,4 +9,12 @@ const Error = ({ severity, msg }) => {
   );
 };
 
+export const Info = ({ msg }) => {
+  return <Error severity="info" msg={msg} />;
+};
+
+export const Success = ({ msg }) => {
+  return <Error severity="success" msg={msg} />;
+};
+
 export default Error;

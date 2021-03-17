@@ -35,13 +35,14 @@ const Login = () => {
     login(emailRef.current.value, passwordRef.current.value)
       .then(function (result) {
         setError(false);
-        setLoading(false);
         setErrorMsg("");
         history.push("/");
       })
       .catch(function (error) {
         setError(true);
         setErrorMsg("ERROR: " + error.message);
+      })
+      .finally(function () {
         setLoading(false);
       });
   };
@@ -104,8 +105,14 @@ const Login = () => {
                 Log In
               </button>
             </div>
-            <div className="form-control">
-              Create a new account : <Link to="/signUp">Sign Up</Link>
+            <div className="form-control text-center">
+              <Link to="forgot-password">Forgot Password?</Link>
+            </div>
+            <div className="form-control text-center">
+              <small>
+                Need an account? {"  "}
+                <Link to="/signUp">Sign Up</Link>
+              </small>
             </div>
           </form>
         </div>
@@ -121,12 +128,21 @@ const Logout = ({ handleLogout, loading, currentUser }) => {
         <div className="form-control">
           <h3>Hello '{currentUser.email}'</h3>
         </div>
+        <EditProfile />
         <div className="form-control">
           <button onClick={handleLogout} type="submit" disabled={loading}>
             Log Out
           </button>
         </div>
       </form>
+    </div>
+  );
+};
+
+const EditProfile = () => {
+  return (
+    <div className="form-control text-center">
+      <Link to="/update-profile">Update Profile</Link>
     </div>
   );
 };
