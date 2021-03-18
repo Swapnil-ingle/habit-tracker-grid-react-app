@@ -91,38 +91,41 @@ const Login = () => {
       )}
 
       {!currentUser && (
-        <div className="sign-up-container">
-          <form>
-            {error && <Error severity="error" msg={errorMsg} />}
-            <div className="form-control">
-              <label htmlFor="email">Email</label>
-              <input ref={emailRef} type="email" name="email" id="email" />
-            </div>
-            <div className="form-control">
-              <label htmlFor="password">Password</label>
-              <input
-                ref={passwordRef}
-                type="password"
-                name="password"
-                id="password"
-              />
-            </div>
-            <div className="form-control">
-              <button onClick={handleSubmit} type="submit" disabled={loading}>
-                Log In
-              </button>
-            </div>
-            <div className="form-control text-center">
-              <Link to="forgot-password">Forgot Password?</Link>
-            </div>
-            <div className="form-control text-center">
-              <small>
-                Need an account? {"  "}
-                <Link to="/signUp">Sign Up</Link>
-              </small>
-            </div>
-          </form>
-        </div>
+        <>
+          <img className="sign-in-img" src="sign-in.svg" alt="sign-in" />
+          <div className="sign-up-container">
+            <form>
+              {error && <Error severity="error" msg={errorMsg} />}
+              <div className="form-control">
+                <label htmlFor="email">Email</label>
+                <input ref={emailRef} type="email" name="email" id="email" />
+              </div>
+              <div className="form-control">
+                <label htmlFor="password">Password</label>
+                <input
+                  ref={passwordRef}
+                  type="password"
+                  name="password"
+                  id="password"
+                />
+              </div>
+              <div className="form-control">
+                <button onClick={handleSubmit} type="submit" disabled={loading}>
+                  Log In
+                </button>
+              </div>
+              <div className="form-control text-center">
+                <Link to="forgot-password">Forgot Password?</Link>
+              </div>
+              <div className="form-control text-center">
+                <small>
+                  Need an account? {"  "}
+                  <Link to="/signUp">Sign Up</Link>
+                </small>
+              </div>
+            </form>
+          </div>
+        </>
       )}
     </main>
   );

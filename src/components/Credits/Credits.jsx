@@ -30,6 +30,11 @@ const Credits = () => {
                 artist clipart png from pngtree.com
               </a>
             </li>
+            <li>
+              <a rel="noreferrer" target="_blank" href="https://pngtree.com">
+                calendar clipart PNG Designed By CONG from Pngtree.com
+              </a>
+            </li>
           </ul>
         </section>
       </div>

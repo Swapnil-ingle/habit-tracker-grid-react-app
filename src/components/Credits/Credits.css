@@ -4,3 +4,11 @@ h3,
 a {
   color: var(--dark-blue);
 }
+
+.credits-container {
+  padding: 0 1.5rem;
+}
+
+.credits-container a:hover {
+  color: var(--blue);
+}
