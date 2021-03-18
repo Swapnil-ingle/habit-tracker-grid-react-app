@@ -49,7 +49,7 @@ export default function TransitionsModal({ id }) {
   return (
     <div>
       <button id="remove-card" type="button" onClick={handleOpen}>
-        <CancelIcon style={{ fontSize: 40 }} />
+        <CancelIcon style={{ fontSize: 30 }} />
       </button>
       <Modal
         aria-labelledby="transition-modal-title"

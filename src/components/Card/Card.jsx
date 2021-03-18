@@ -28,7 +28,7 @@ const Card = React.memo(
           onClick={() => {
             markHabitDone(id);
             if (doneToday) {
-              toast.warn("Removed habit mark!", {
+              toast.error("Removed habit mark!", {
                 position: toast.POSITION.BOTTOM_CENTER,
               });
             } else {
