@@ -6,7 +6,7 @@ main {
   align-items: center;
   flex-wrap: wrap;
   position: relative;
-  padding-top: 2.5rem;
+  /* padding-top: 2.5rem; */
   padding-bottom: 2.5rem;
 }
 
@@ -89,4 +89,28 @@ button {
 
 .no-habits-msg-container strong {
   color: var(--green);
+}
+
+.cards-status-dots-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.card-status-dot-not-done {
+  margin-left: 5px;
+  color: var(--dark-red);
+  border-radius: 50%;
+  border: 1px solid lightgray;
+  background-color: var(--white);
+}
+
+.card-status-dot-done {
+  margin-left: 5px;
+  color: var(--green);
+  border-radius: 50%;
+  border: 1px solid lightgray;
+  background-color: var(--white);
 }

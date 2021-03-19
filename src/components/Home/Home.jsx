@@ -8,6 +8,8 @@ import { useGlobalContext } from "../../context/context";
 
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import { formatDateObj } from "../../utils/utils";
 
 import "./Home.css";
 
@@ -44,6 +46,19 @@ const Home = () => {
 
   return (
     <div className="dashboard-container">
+      <div className="cards-status-dots-container">
+        {habits.map((habit) => {
+          const doneToday =
+            habit.doneTasksOn.indexOf(formatDateObj(new Date())) !== -1;
+          return (
+            <FiberManualRecordIcon
+              className={`${
+                doneToday ? "card-status-dot-done" : "card-status-dot-not-done"
+              }`}
+            />
+          );
+        })}
+      </div>
       <main>
         <button
           id="scroll-left-btn"
