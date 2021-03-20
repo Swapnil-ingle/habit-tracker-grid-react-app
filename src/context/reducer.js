@@ -1,5 +1,6 @@
 import { formatDateObj } from "../utils/utils";
 import { saveToLocalStorage } from "../utils/localStorage";
+import { database } from "../firebase";
 
 export const reducer = (state, action) => {
   let newHabits;
@@ -38,6 +39,10 @@ export const reducer = (state, action) => {
       const newHabit = action.payload;
       state.habits.push(newHabit);
       saveToLocalStorage("habits", state);
+      // saveToFirebase(state);
+      database.habits.add({
+        habit: newHabit,
+      });
       return { ...state };
     case "DELETE_HABIT":
       newHabits = state.habits.filter((item) => item.id !== action.payload);
