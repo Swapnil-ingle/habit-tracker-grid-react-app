@@ -2,6 +2,7 @@ import { useContext, useReducer } from "react";
 import React from "react";
 import { reducer } from "./reducer";
 import { getFromLocalStorage } from "../utils/localStorage";
+import { useAuthContext } from "./AuthContext";
 
 const initialState = {
   habits: getFromLocalStorage("habits")
@@ -18,13 +19,14 @@ const AppContext = React.createContext(initialState);
 // Wrap a AppProvider
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { currentUser } = useAuthContext();
 
   const toggleToday = React.useCallback((id) => {
     dispatch({ type: "TOGGLE_TODAY", payload: id });
   }, []);
 
   const addNewHabit = (habit) => {
-    dispatch({ type: "ADD_NEW_HABIT", payload: habit });
+    dispatch({ type: "ADD_NEW_HABIT", payload: { habit, currentUser } });
   };
 
   const deleteHabit = (id) => {

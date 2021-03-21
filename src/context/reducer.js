@@ -36,13 +36,12 @@ export const reducer = (state, action) => {
       saveToLocalStorage("habits", { ...state, habits: newHabits });
       return { ...state, habits: newHabits };
     case "ADD_NEW_HABIT":
-      const newHabit = action.payload;
+      const newHabit = action.payload.habit;
+      const currUser = action.payload.currentUser;
       state.habits.push(newHabit);
       saveToLocalStorage("habits", state);
-      // saveToFirebase(state);
-      database.habits.add({
-        habit: newHabit,
-      });
+      saveToFirebase(newHabit, currUser);
+
       return { ...state };
     case "DELETE_HABIT":
       newHabits = state.habits.filter((item) => item.id !== action.payload);
@@ -58,3 +57,10 @@ export const reducer = (state, action) => {
       return { ...state };
   }
 };
+
+function saveToFirebase(newHabit, currUser) {
+  database.habits.add({
+    habit: newHabit,
+    userId: currUser ? currUser.uid : "None",
+  });
+}

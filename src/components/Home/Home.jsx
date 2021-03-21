@@ -52,6 +52,7 @@ const Home = () => {
             habit.doneTasksOn.indexOf(formatDateObj(new Date())) !== -1;
           return (
             <FiberManualRecordIcon
+              key={habit.id}
               className={`${
                 doneToday ? "card-status-dot-done" : "card-status-dot-not-done"
               }`}
