@@ -39,8 +39,11 @@ export const reducer = (state, action) => {
       const newHabit = action.payload.habit;
       const currUser = action.payload.currentUser;
       state.habits.push(newHabit);
-      saveToLocalStorage("habits", state);
-      saveToFirebase(newHabit, currUser);
+      if (currUser) {
+        saveToFirebaseIfUserLoggedIn(newHabit, currUser);
+      } else {
+        saveToLocalStorage("habits", state);
+      }
 
       return { ...state };
     case "DELETE_HABIT":
@@ -53,12 +56,19 @@ export const reducer = (state, action) => {
     case "MARK_AS_UNVISITED":
       saveToLocalStorage("habits", { ...state, isUsersFirstTime: true });
       return { ...state, isUsersFirstTime: true };
+    case "SET_HABITS":
+      console.log("Habits in SET_HABIT", action.payload);
+      return { ...state, habits: action.payload };
     default:
       return { ...state };
   }
 };
 
-function saveToFirebase(newHabit, currUser) {
+function saveToFirebaseIfUserLoggedIn(newHabit, currUser) {
+  if (!currUser || !currUser.uid) {
+    return;
+  }
+
   database.habits.add({
     habit: newHabit,
     userId: currUser ? currUser.uid : "None",
