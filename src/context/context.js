@@ -51,7 +51,7 @@ const AppProvider = ({ children }) => {
         ? getFromLocalStorage("habits").habits
         : [],
     });
-  }, []);
+  }, [currentUser]);
 
   const toggleToday = React.useCallback((id) => {
     dispatch({ type: "TOGGLE_TODAY", payload: id });
