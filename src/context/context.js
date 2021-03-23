@@ -21,10 +21,6 @@ const AppProvider = ({ children }) => {
   const { currentUser } = useAuthContext();
 
   React.useEffect(() => {
-    state.isUsersFirstTime = getFromLocalStorage("habits")
-      ? getFromLocalStorage("habits").isUsersFirstTime
-      : true;
-
     if (currentUser && currentUser.uid) {
       database.habits
         .where("userId", "==", currentUser.uid)
@@ -53,16 +49,19 @@ const AppProvider = ({ children }) => {
     });
   }, [currentUser]);
 
-  const toggleToday = React.useCallback((id) => {
-    dispatch({ type: "TOGGLE_TODAY", payload: id });
-  }, []);
+  const toggleToday = React.useCallback(
+    (id) => {
+      dispatch({ type: "TOGGLE_TODAY", payload: { id, currentUser } });
+    },
+    [currentUser]
+  );
 
   const addNewHabit = (habit) => {
     dispatch({ type: "ADD_NEW_HABIT", payload: { habit, currentUser } });
   };
 
   const deleteHabit = (id) => {
-    dispatch({ type: "DELETE_HABIT", payload: id });
+    dispatch({ type: "DELETE_HABIT", payload: { id, currentUser } });
   };
 
   const markAsVisited = () => {
