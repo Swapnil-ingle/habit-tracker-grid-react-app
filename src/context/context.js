@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react";
+import { useContext, useReducer, useState } from "react";
 import React from "react";
 import { reducer } from "./reducer";
 import { getFromLocalStorage } from "../utils/localStorage";
@@ -6,7 +6,7 @@ import { useAuthContext } from "./AuthContext";
 import { database } from "../firebase";
 
 const initialState = {
-  habits: [],
+  habits: undefined,
   isUsersFirstTime: getFromLocalStorage("habits")
     ? getFromLocalStorage("habits").isUsersFirstTime
     : true,
@@ -19,8 +19,11 @@ const AppContext = React.createContext(initialState);
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuthContext();
+  const [loading, setLoading] = useState(false);
 
   React.useEffect(() => {
+    setLoading(true);
+
     if (currentUser && currentUser.uid) {
       database.habits
         .where("userId", "==", currentUser.uid)
@@ -36,6 +39,9 @@ const AppProvider = ({ children }) => {
         })
         .catch((error) => {
           console.log("Error while fetching from Firebase: ", error);
+        })
+        .finally(() => {
+          setLoading(false);
         });
 
       return;
@@ -47,6 +53,7 @@ const AppProvider = ({ children }) => {
         ? getFromLocalStorage("habits").habits
         : [],
     });
+    setLoading(false);
   }, [currentUser]);
 
   const toggleToday = React.useCallback(
@@ -82,6 +89,7 @@ const AppProvider = ({ children }) => {
         deleteHabit,
         markAsVisited,
         markAsUnvisited,
+        loading,
       }}
     >
       {children}

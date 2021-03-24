@@ -12,18 +12,24 @@ import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import { formatDateObj } from "../../utils/utils";
 
 import "./Home.css";
+import HomeSkeleton from "./Skeleton/HomeSkeleton";
 
 let habitCardsContainerRef = null;
 let habitArrLen = 0;
 
 const Home = () => {
-  const { habits, isUsersFirstTime, toggleToday } = useGlobalContext();
-  habitArrLen += habits.length;
+  const { habits, isUsersFirstTime, toggleToday, loading } = useGlobalContext();
   habitCardsContainerRef = useRef(null);
 
   if (isUsersFirstTime) {
     return <Welcome />;
   }
+
+  if (loading || habits === undefined) {
+    return <HomeSkeleton />;
+  }
+
+  habitArrLen += habits.length;
 
   if (habits.length <= 0 && !isUsersFirstTime) {
     return (
