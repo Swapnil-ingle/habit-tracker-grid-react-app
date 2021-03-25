@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import TableChartIcon from "@material-ui/icons/TableChart";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import HelpIcon from "@material-ui/icons/Help";
 import { useGlobalContext } from "../../context/context";
 
@@ -19,17 +20,21 @@ const NavBar = () => {
           <TableChartIcon /> Hagrid
         </h2>
       </Link>
-      {currentUser && <small>{currentUser.email}</small>}
       <div className="nav-icon-container">
         <Link to="/">
           <button onClick={markAsUnvisited}>
             <HelpIcon style={{ fontSize: 30 }} />
           </button>
         </Link>
-        <Link to="/login">
+        <Link className="user-live-dot-container" to="/login">
           <button>
             <AccountCircleIcon style={{ fontSize: 30 }} />
           </button>
+          <FiberManualRecordIcon
+            className={`user-live-dot user-live-dot-${
+              currentUser ? "on" : "off"
+            }`}
+          />
         </Link>
       </div>
     </nav>
