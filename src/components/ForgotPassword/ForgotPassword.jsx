@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useAuthContext } from "../../context/AuthContext";
-import Error, { Info } from "../Error/Error";
+import Error from "../Error/Error";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -45,10 +45,6 @@ const ForgotPassword = () => {
 
   return (
     <main>
-      <div className="sign-up-container-floating-warning">
-        <Info msg={"Note: This feature is under construction!"} />
-      </div>
-
       <div className="sign-up-container">
         <form>
           <h1 className="text-center">Password Reset</h1>

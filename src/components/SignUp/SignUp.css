@@ -41,9 +41,3 @@ input {
 .sign-up-container a:hover {
   color: var(--blue);
 }
-
-.sign-up-container-floating-warning {
-  position: absolute;
-  right: 0.5rem;
-  top: 1rem;
-}

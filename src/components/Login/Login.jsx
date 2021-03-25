@@ -75,13 +75,6 @@ const Login = () => {
 
   return (
     <main>
-      <div className="sign-up-container-floating-warning">
-        <Error
-          severity="info"
-          msg={"Note: This feature is under construction!"}
-        />
-      </div>
-
       {currentUser && (
         <Logout
           loading={loading}
