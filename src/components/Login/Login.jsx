@@ -8,11 +8,12 @@ import "./Login.css";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from "../Profile/Profile";
 
 toast.configure();
 
 const Login = () => {
-  const { login, logout, currentUser } = useAuthContext();
+  const { login, currentUser } = useAuthContext();
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
   const [loading, setLoading] = useState(false);
@@ -52,36 +53,9 @@ const Login = () => {
       });
   };
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-
-    setError(false);
-    setErrorMsg("");
-    logout()
-      .then(function Result(r) {
-        history.push("/login");
-        toast.success("Logged out!", {
-          position: toast.POSITION.BOTTOM_CENTER,
-        });
-      })
-      .catch(function Error(e) {
-        setError(true);
-        setErrorMsg("ERROR: " + e.message);
-      });
-
-    setError(false);
-    setErrorMsg("");
-  };
-
   return (
     <main>
-      {currentUser && (
-        <Logout
-          loading={loading}
-          handleLogout={handleLogout}
-          currentUser={currentUser}
-        />
-      )}
+      {currentUser && <Profile />}
 
       {!currentUser && (
         <>
@@ -121,32 +95,6 @@ const Login = () => {
         </>
       )}
     </main>
-  );
-};
-
-const Logout = ({ handleLogout, loading, currentUser }) => {
-  return (
-    <div className="sign-up-container">
-      <form>
-        <div className="form-control">
-          <h3>Hello '{currentUser.email}'</h3>
-        </div>
-        <EditProfile />
-        <div className="form-control">
-          <button onClick={handleLogout} type="submit" disabled={loading}>
-            Log Out
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
-
-const EditProfile = () => {
-  return (
-    <div className="form-control text-center">
-      <Link to="/update-profile">Update Profile</Link>
-    </div>
   );
 };
 

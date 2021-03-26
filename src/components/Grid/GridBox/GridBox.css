@@ -26,3 +26,9 @@
 .missed {
   background-color: var(--dark-red);
 }
+
+.fixed {
+  position: sticky;
+  top: 0px;
+  background-color: var(--dark-blue);
+}

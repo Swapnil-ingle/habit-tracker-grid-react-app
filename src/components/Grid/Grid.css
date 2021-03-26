@@ -23,9 +23,3 @@
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
-
-.fixed {
-  position: sticky;
-  top: 0px;
-  background-color: #fff;
-}

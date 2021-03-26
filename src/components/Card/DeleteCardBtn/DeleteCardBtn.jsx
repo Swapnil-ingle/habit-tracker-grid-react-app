@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal({ id }) {
+const DeleteCardBtn = ({ id }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -64,12 +64,12 @@ export default function TransitionsModal({ id }) {
         }}
       >
         <Fade in={open}>
-          <DeleteCardDialogBox handleClose={handleClose} id={id} />
+          <DeleteCardDialogBoxWithRef handleClose={handleClose} id={id} />
         </Fade>
       </Modal>
     </div>
   );
-}
+};
 
 const DeleteCardDialogBox = ({ handleClose, id }) => {
   const { deleteHabit } = useGlobalContext();
@@ -97,3 +97,11 @@ const DeleteCardDialogBox = ({ handleClose, id }) => {
     </div>
   );
 };
+
+const DeleteCardDialogBoxWithRef = React.forwardRef((props, ref) => {
+  return <DeleteCardDialogBox {...props} innerRef={ref} />;
+});
+
+export default React.forwardRef((props, ref) => {
+  return <DeleteCardBtn {...props} innerRef={ref} />;
+});

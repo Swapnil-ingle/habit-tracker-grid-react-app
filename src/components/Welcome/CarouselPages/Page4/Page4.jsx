@@ -3,8 +3,24 @@ import { useGlobalContext } from "../../../../context/context";
 
 import "./Page4.css";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
+
 const Page4 = () => {
   const { markAsVisited } = useGlobalContext();
+
+  const handleSubmit = () => {
+    markAsVisited();
+    toast.dark(
+      "Create an account and login to save your progress across devices.",
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: false,
+      }
+    );
+  };
 
   return (
     <div className="welcome-page">
@@ -26,7 +42,7 @@ const Page4 = () => {
       </section>
 
       <section className="get-started-btn-container">
-        <button onClick={markAsVisited}>
+        <button onClick={handleSubmit}>
           {/* <Link to="/">Get Started!</Link> */}
           Get Started!
         </button>

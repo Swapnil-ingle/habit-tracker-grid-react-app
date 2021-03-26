@@ -18,7 +18,7 @@ const Credits = () => {
                 target="_blank"
                 href="https://pngtree.com/so/cry"
               >
-                cry png from pngtree.com
+                Cry.png (pngtree.com)
               </a>
             </li>
             <li>
@@ -27,12 +27,21 @@ const Credits = () => {
                 target="_blank"
                 href="https://pngtree.com/so/artist-clipart"
               >
-                artist clipart png from pngtree.com
+                Artist-Clipart.png (pngtree.com)
               </a>
             </li>
             <li>
               <a rel="noreferrer" target="_blank" href="https://pngtree.com">
-                calendar clipart PNG Designed By CONG from Pngtree.com
+                Calendar-Clipart.png (Designed By CONG - pngtree.com)
+              </a>
+            </li>
+            <li>
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href="https://pngtree.com/so/flat-user-avatar-astronaut"
+              >
+                Flat-user-avatar-astronaut.png (pngtree.com)
               </a>
             </li>
           </ul>

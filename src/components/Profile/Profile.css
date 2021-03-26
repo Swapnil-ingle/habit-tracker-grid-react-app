@@ -1,0 +1,34 @@
+.profile-container h3 {
+  color: var(--white);
+}
+
+.profile-container {
+  height: 40rem;
+  display: flex;
+  align-items: center;
+}
+
+.profile-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.update-profile-btn {
+  padding: 0.7rem 0;
+  border-radius: 3px;
+  background-color: var(--yellow);
+}
+
+.update-profile-btn a {
+  color: var(--black);
+}
+
+.update-profile-btn a:hover {
+  color: var(--white);
+}
+
+.update-profile-btn:hover {
+  cursor: pointer;
+  background-color: var(--dark-green);
+}

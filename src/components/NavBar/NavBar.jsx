@@ -10,7 +10,7 @@ import "./NavBar.css";
 import { useAuthContext } from "../../context/AuthContext";
 
 const NavBar = () => {
-  const { markAsUnvisited } = useGlobalContext();
+  const { markAsUnvisited, isUsersFirstTime } = useGlobalContext();
   const { currentUser } = useAuthContext();
 
   return (
@@ -30,11 +30,13 @@ const NavBar = () => {
           <button>
             <AccountCircleIcon style={{ fontSize: 30 }} />
           </button>
-          <FiberManualRecordIcon
-            className={`user-live-dot user-live-dot-${
-              currentUser ? "on" : "off"
-            }`}
-          />
+          {!isUsersFirstTime && (
+            <FiberManualRecordIcon
+              className={`user-live-dot user-live-dot-${
+                currentUser ? "on" : "off"
+              }`}
+            />
+          )}
         </Link>
       </div>
     </nav>
