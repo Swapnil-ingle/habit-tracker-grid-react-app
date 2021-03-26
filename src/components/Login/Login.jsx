@@ -43,6 +43,9 @@ const Login = () => {
         setError(false);
         setErrorMsg("");
         history.push("/");
+        toast.dark("Fetching Habits data from your user account!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       })
       .catch(function (error) {
         setError(true);
