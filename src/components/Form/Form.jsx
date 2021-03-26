@@ -129,4 +129,6 @@ const Form = ({ handleClose }) => {
   );
 };
 
-export default Form;
+export default React.forwardRef((props, ref) => {
+  return <Form {...props} innerRef={ref} />;
+});
