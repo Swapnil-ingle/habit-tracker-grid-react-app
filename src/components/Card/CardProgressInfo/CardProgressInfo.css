@@ -9,6 +9,7 @@
 }
 
 .card-progress-info-container section {
+  padding: 0 0.5rem;
   color: var(--white);
 }
 
@@ -17,7 +18,7 @@
 }
 
 .card-progress-info-container section:not(:last-child) {
-  padding-right: 12%;
+  padding-right: 10%;
   border-right: 1px solid rgba(128, 128, 128, 0.2);
 }
 
