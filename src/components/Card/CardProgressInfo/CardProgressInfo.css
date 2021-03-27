@@ -1,0 +1,34 @@
+.card-progress-info-container {
+  width: 100%;
+  border-top: 1px solid rgba(128, 128, 128, 0.7);
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--darker-blue);
+}
+
+.card-progress-info-container section {
+  color: var(--white);
+}
+
+.card-progress-info-container section:hover {
+  cursor: pointer;
+}
+
+.card-progress-info-container section:not(:last-child) {
+  padding-right: 12%;
+  border-right: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.light-green-text {
+  color: var(--light-green);
+}
+
+.red-text {
+  color: var(--red);
+}
+
+.yellow-text {
+  color: var(--yellow);
+}

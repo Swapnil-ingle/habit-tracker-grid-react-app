@@ -71,7 +71,6 @@ export const reducer = (state, action) => {
       saveToLocalStorage("habits", { ...state, isUsersFirstTime: true });
       return { ...state, isUsersFirstTime: true };
     case "SET_HABITS":
-      console.log("Habits in SET_HABIT", action.payload);
       return { ...state, habits: action.payload };
     default:
       return { ...state };

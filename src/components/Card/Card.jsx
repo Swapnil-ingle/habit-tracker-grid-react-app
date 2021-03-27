@@ -5,13 +5,12 @@ import { formatDateObj } from "../../utils/utils";
 import DeleteCardBtn from "./DeleteCardBtn/DeleteCardBtn";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CardProgressInfo from "./CardProgressInfo/CardProgressInfo";
 
 toast.configure();
 
 const Card = React.memo(
   ({ id, name, description, startDate, doneTasksOn, markHabitDone }) => {
-    console.log(`Rendering ${name}`);
-
     const doneToday = doneTasksOn.indexOf(formatDateObj(new Date())) !== -1;
 
     return (
@@ -40,6 +39,7 @@ const Card = React.memo(
         >
           {`${doneToday ? "Undo" : "Mark Today"}`}
         </button>
+        <CardProgressInfo doneTasksOn={doneTasksOn} startDate={startDate} />
       </div>
     );
   }

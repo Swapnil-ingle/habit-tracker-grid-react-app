@@ -12,8 +12,6 @@ const Grid = ({ startDate, doneTasksOn }) => {
   let endDate = new Date(startDate).getFullYear() + "-12-31"; // End of the year
   const gridBoxes = generateGridDateArray(startDate, endDate);
 
-  console.log("Rerendered Grid");
-
   let gridBoxId = 0;
   let gridBoxColId = 0;
   let gridBoxRowId = 0;

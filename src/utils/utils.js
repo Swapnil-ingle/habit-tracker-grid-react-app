@@ -98,3 +98,22 @@ export const resolveDayNumberToDayName = (dayNum) => {
       return "";
   }
 };
+
+export const substractNDaysReturnString = (date, nDays) => {
+  return formatDateObj(substractNDays(date, nDays));
+};
+
+export const substractNDays = (date, nDays) => {
+  let subtractedDate = new Date();
+  let inputDateObj = new Date(date);
+
+  subtractedDate.setDate(inputDateObj.getDate() - nDays);
+
+  return subtractedDate;
+};
+
+export const dateDiffInDays = (startDate, endDate) => {
+  const diffInTime =
+    new Date(endDate).getTime() - new Date(startDate).getTime();
+  return diffInTime / (1000 * 3600 * 24) + 1;
+};
