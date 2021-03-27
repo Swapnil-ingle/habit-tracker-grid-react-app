@@ -1,11 +1,18 @@
 import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import { useAuthContext } from "../../context/AuthContext";
-import Error from "../Error/Error";
+import { useAuthContext } from "../../../context/AuthContext";
+import Error from "../../Error/Error";
 
-const UpdateProfile = () => {
-  const { currentUser, updateEmail, updatePassword } = useAuthContext();
+import "./SignUp.css";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
+
+const SignUp = () => {
+  const { signup } = useAuthContext();
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
   const [loading, setLoading] = useState(false);
@@ -15,12 +22,8 @@ const UpdateProfile = () => {
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setLoading(true);
-    setErrorMsg("");
-    setError(false);
 
     if (emailRef.current.value.length <= 0) {
       setError(true);
@@ -34,25 +37,20 @@ const UpdateProfile = () => {
       return;
     }
 
-    const promises = [];
-
-    if (emailRef.current.value !== currentUser.email) {
-      promises.push(updateEmail(emailRef.current.value));
-    }
-
-    if (passwordRef.current.value) {
-      promises.push(updatePassword(passwordRef.current.value));
-    }
-
-    Promise.all(promises)
-      .then(() => {
-        history.push("/");
+    setLoading(true);
+    signup(emailRef.current.value, passwordRef.current.value)
+      .then(function (result) {
+        setError(false);
+        setLoading(false);
+        setErrorMsg("");
+        history.push("/login");
+        toast.success("Sign up successful!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       })
-      .catch((error) => {
+      .catch(function (error) {
         setError(true);
         setErrorMsg("ERROR: " + error.message);
-      })
-      .finally(() => {
         setLoading(false);
       });
   };
@@ -64,13 +62,7 @@ const UpdateProfile = () => {
           {error && <Error severity="error" msg={errorMsg} />}
           <div className="form-control">
             <label htmlFor="email">Email</label>
-            <input
-              ref={emailRef}
-              type="email"
-              name="email"
-              id="email"
-              defaultValue={currentUser.email}
-            />
+            <input ref={emailRef} type="email" name="email" id="email" />
           </div>
           <div className="form-control">
             <label htmlFor="password">Password</label>
@@ -79,7 +71,6 @@ const UpdateProfile = () => {
               type="password"
               name="password"
               id="password"
-              placeholder="Leave blank to keep the same"
             />
           </div>
           <div className="form-control">
@@ -89,16 +80,15 @@ const UpdateProfile = () => {
               type="password"
               name="confirmPassword"
               id="confirmPassword"
-              placeholder="Leave blank to keep the same"
             />
           </div>
           <div className="form-control">
             <button onClick={handleSubmit} type="submit" disabled={loading}>
-              Update
+              Sign Up
             </button>
           </div>
-          <div className="form-control text-center">
-            <Link to="/">Cancel</Link>
+          <div className="form-control">
+            Already have an account? <Link to="/logIn">Log In</Link>
           </div>
         </form>
       </div>
@@ -106,4 +96,4 @@ const UpdateProfile = () => {
   );
 };
 
-export default UpdateProfile;
+export default SignUp;

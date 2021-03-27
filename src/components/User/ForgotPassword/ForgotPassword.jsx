@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useAuthContext } from "../../context/AuthContext";
-import Error from "../Error/Error";
+import { useAuthContext } from "../../../context/AuthContext";
+import Error from "../../Error/Error";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

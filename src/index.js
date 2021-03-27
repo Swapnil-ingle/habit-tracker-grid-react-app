@@ -1,14 +1,17 @@
+import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import SignUp from "./components/SignUp/SignUp";
-import { AppProvider } from "./context/context";
-import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { AppProvider } from "./context/context";
 import { AuthProvider } from "./context/AuthContext";
-import Login from "./components/Login/Login";
-import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
+
+import SignUp from "./components/User/SignUp/SignUp";
+import Login from "./components/User/Login/Login";
+import ForgotPassword from "./components/User/ForgotPassword/ForgotPassword";
+import UpdateProfile from "./components/User/UpdateProfile/UpdateProfile";
+
+import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import Credits from "./components/Credits/Credits";
 

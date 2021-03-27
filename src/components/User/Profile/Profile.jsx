@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 
 import "./Profile.css";
 
